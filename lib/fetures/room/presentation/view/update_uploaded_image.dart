@@ -9,21 +9,14 @@ import 'package:room_finder_app/core/common/snackbar/snackbar.dart';
 import '../../domain/entity/room_entity.dart';
 import '../view_model/room_viewmodel.dart';
 
-class UploadView extends ConsumerStatefulWidget {
-  const UploadView({super.key});
+class UpdateUploadView extends ConsumerStatefulWidget {
+  const UpdateUploadView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _UploadViewState();
 }
 
-class _UploadViewState extends ConsumerState<UploadView> {
-  // checkCameraPermission() async {
-  //   if (await Permission.camera.request().isRestricted ||
-  //       await Permission.camera.request().isDenied) {
-  //     await Permission.camera.request();
-  //   }
-  // }
-
+class _UploadViewState extends ConsumerState<UpdateUploadView> {
   File? _img;
   // after add room
   String actualPostId = RoomEntity.postId;
@@ -100,9 +93,10 @@ class _UploadViewState extends ConsumerState<UploadView> {
             gap,
             ElevatedButton(
               onPressed: () {
-               
-                Navigator.popAndPushNamed(context, AppRoute.dashboardRoute);
-                // ref.watch(roomViewModelProvider.notifier).getAllRooms();
+                ref.read(roomViewModelProvider).imageName;
+
+                Navigator.pop(context);
+                ref.watch(roomViewModelProvider);
               },
               child: const Text('Add Image'),
             ),

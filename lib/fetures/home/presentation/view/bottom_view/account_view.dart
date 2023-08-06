@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:full_screen_image/full_screen_image.dart';
+import 'package:room_finder_app/config/router/app_route.dart';
 import 'package:room_finder_app/core/common/snackbar/snackbar.dart';
 import 'package:room_finder_app/fetures/auth/presentation/state/auth_state.dart';
 
@@ -132,10 +133,16 @@ class _AccountViewState extends ConsumerState<AccountView> {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: width * 0.24,
+                                      width: width * 0.22,
                                     ),
                                     IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                          context,
+                                          AppRoute.updateRoom,
+                                          arguments: room,
+                                        );
+                                      },
                                       icon: const Icon(Icons.edit),
                                     ),
                                     IconButton(
@@ -160,9 +167,8 @@ class _AccountViewState extends ConsumerState<AccountView> {
                                                         .watch(
                                                             roomGetMyRoomViewModelProvider
                                                                 .notifier)
-                                                                
-                                                        .deleteRoom(
-                                                            context, room.roomId!);
+                                                        .deleteRoom(context,
+                                                            room.roomId!);
 
                                                     ref
                                                         .watch(

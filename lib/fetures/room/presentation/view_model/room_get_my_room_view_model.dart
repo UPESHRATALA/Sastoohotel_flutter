@@ -61,7 +61,6 @@ class RoomGetMyRoomViewModel extends StateNotifier<RoomState> {
   Future<void> deleteRoom(BuildContext context, String roomId) async {
     state.copyWith(isLoading: true);
     var data = await roomUseCase.deleteRoom(roomId);
-    print("the room id  is $roomId");
 
     data.fold(
       (l) {
@@ -71,10 +70,6 @@ class RoomGetMyRoomViewModel extends StateNotifier<RoomState> {
       },
       (r) {
         state = state.copyWith(isLoading: false, error: null);
-        showSnackBar(
-          message: 'Room delete successfully',
-          context: context,
-        );
       },
     );
   }

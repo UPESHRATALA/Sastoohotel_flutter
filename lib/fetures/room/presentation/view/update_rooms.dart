@@ -13,6 +13,7 @@ class UpdateView extends ConsumerStatefulWidget {
 }
 
 class _UploadViewState extends ConsumerState<UpdateView> {
+  late String img;
   late TextEditingController _titleController;
   late TextEditingController _descriptionController;
   late TextEditingController _priceController;
@@ -49,9 +50,6 @@ class _UploadViewState extends ConsumerState<UpdateView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Update rooms"),
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Form(
@@ -68,12 +66,6 @@ class _UploadViewState extends ConsumerState<UpdateView> {
                       hintText: "Write the title of the room",
                       border: OutlineInputBorder(),
                     ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Please insert the title of the room";
-                      }
-                      return null;
-                    },
                   ),
                   gap,
                   TextFormField(
@@ -83,12 +75,6 @@ class _UploadViewState extends ConsumerState<UpdateView> {
                       hintText: "Enter the location of the room",
                       border: OutlineInputBorder(),
                     ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Please enter the location of a Room";
-                      }
-                      return null;
-                    },
                   ),
                   gap,
                   TextFormField(
@@ -98,12 +84,6 @@ class _UploadViewState extends ConsumerState<UpdateView> {
                       hintText: "Enter the Price of the rooms",
                       border: OutlineInputBorder(),
                     ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Please give the price of the room";
-                      }
-                      return null;
-                    },
                   ),
                   gap,
                   TextFormField(
@@ -113,12 +93,6 @@ class _UploadViewState extends ConsumerState<UpdateView> {
                       hintText: "write your phone number",
                       border: OutlineInputBorder(),
                     ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Please Write your Phone Number";
-                      }
-                      return null;
-                    },
                   ),
                   gap,
                   TextFormField(
@@ -129,40 +103,35 @@ class _UploadViewState extends ConsumerState<UpdateView> {
                       hintText: "Write description of the Room",
                       border: OutlineInputBorder(),
                     ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Please write the description of the room";
-                      }
-                      return null;
-                    },
                   ),
                   gap,
                   ElevatedButton(
                       onPressed: () {
-                        if (_key.currentState!.validate()) {
-                          RoomEntity room = RoomEntity(
-                            title: _titleController.text,
-                            location: _locationController.text,
-                            description: _descriptionController.text,
-                            price: int.parse(_priceController.text),
-                            phoneNumber: int.parse(_phoneNumberController.text),
-                            user: '',
+                        // if (_key.currentState!.validate()) {
+                        RoomEntity room = RoomEntity(
+                          title: _titleController.text,
+                          location: _locationController.text,
+                          description: _descriptionController.text,
+                          price: int.parse(_priceController.text),
+                          phoneNumber: int.parse(_phoneNumberController.text),
+                          image: ref.watch(roomGetMyRoomViewModelProvider).imageName,
+                          user: '',
+                        );
+                        ref
+                            .read(roomGetMyRoomViewModelProvider.notifier)
+                            .updateRoom(room, widget.room.roomId!);
+                        ref
+                            .watch(roomGetMyRoomViewModelProvider.notifier)
+                            .getMyRooms()
+                            .then((value) {
+                          Navigator.pop(context);
+                          showSnackBar(
+                            context: context,
+                            message: "Room updated successfully",
+                            color: Colors.green,
                           );
-                          ref
-                              .watch(roomGetMyRoomViewModelProvider.notifier)
-                              .updateRoom(room, widget.room.roomId!);
-                          ref
-                              .watch(roomGetMyRoomViewModelProvider.notifier)
-                              .getMyRooms()
-                              .then((value) {
-                            Navigator.pop(context);
-                            showSnackBar(
-                              context: context,
-                              message: "Room updated successfully",
-                              color: Colors.green,
-                            );
-                          });
-                        }
+                        });
+                        // }
                       },
                       child: const Text('Update rooms'))
                 ],

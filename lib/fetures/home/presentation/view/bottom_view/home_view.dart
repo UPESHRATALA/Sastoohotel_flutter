@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:full_screen_image/full_screen_image.dart';
+import 'package:room_finder_app/fetures/room/presentation/view_model/room_get_my_room_view_model.dart';
 
 import '../../../../../core/common/text/room_finder_style_text.dart';
 import '../../../../../core/common/text/text.dart';
@@ -17,6 +18,8 @@ class HomeView extends ConsumerStatefulWidget {
 class _HomeViewState extends ConsumerState<HomeView> {
   @override
   Widget build(BuildContext context) {
+    ref.watch(roomGetMyRoomViewModelProvider);
+    // ref.watch(roomViewModelProvider.notifier).getAllRooms();
     final roomState = ref.watch(roomViewModelProvider);
 
     final List<RoomEntity> roomList = roomState.rooms;
