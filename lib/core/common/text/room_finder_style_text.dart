@@ -6,7 +6,7 @@ class StyleText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Text(
-      'Room Finder',
+      'SastoHotel',
       style: TextStyle(
         fontSize: 35,
         fontWeight: FontWeight.bold,

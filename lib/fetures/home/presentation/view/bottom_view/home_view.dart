@@ -37,7 +37,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                     width: width * 1,
                     height: height * 0.3,
                     decoration: const BoxDecoration(
-                      color: Color.fromRGBO(51, 0, 255, 0.45),
+                      color: Color.fromRGBO(182, 39, 4, 0.938),
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(40),
                         bottomRight: Radius.circular(40),
@@ -63,7 +63,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                         children: [
                           const Align(
                             alignment: Alignment.topCenter,
-                            child: MakingText('Find a Room'),
+                            child: MakingText('Find a Hotel'),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(10.0),
@@ -77,21 +77,21 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                         focusedBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color.fromRGBO(
-                                                51, 0, 255, 0.45),
+                                                182, 39, 4, 0.938),
                                             width: 2,
                                           ),
                                         ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color.fromRGBO(
-                                                51, 0, 255, 0.45),
+                                                182, 39, 4, 0.938),
                                             width: 2,
                                           ),
                                         ),
                                         prefixIcon: Icon(
                                           Icons.location_on,
                                         ),
-                                        hintText: 'Enter the Location',
+                                        hintText: 'Enter the Hotel Name',
                                       ),
                                     ),
                                   ],
@@ -120,7 +120,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
               } else if (roomState.error != null) ...{
                 Text(roomState.error.toString()),
               } else if (roomState.rooms.isEmpty) ...{
-                const Center(child: Text('No Rooms Found')),
+                const Center(child: Text('No Hotel Found')),
               } else ...{
                 GestureDetector(
                   behavior: HitTestBehavior.opaque,
@@ -151,12 +151,22 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                     child: SizedBox(
                                       width: width * 0.25,
                                       height: width * 0.35,
-                                      child: Image.network(
-                                        'http://10.0.2.2:4000/uploads/${room.image}',
-                                        // 'http://192.168.101.6:4000/uploads/${room.image}',
-                                        // ApiEndpoints.imageUrl,
-                                        fit: BoxFit.fill,
-                                      ),
+                                      child: room.image != null &&
+                                              room.image!.isNotEmpty
+                                          ? Image.network(
+                                              'http://192.168.101.6:4000/uploads/${room.image}',
+                                              fit: BoxFit.fill,
+                                              errorBuilder: (context, error,
+                                                      stackTrace) =>
+                                                  Image.asset(
+                                                'assets/images/i.jpg',
+                                                fit: BoxFit.fill,
+                                              ),
+                                            )
+                                          : Image.asset(
+                                              'assets/images/i.jpg',
+                                              fit: BoxFit.fill,
+                                            ),
                                     ),
                                   ),
                                   Padding(

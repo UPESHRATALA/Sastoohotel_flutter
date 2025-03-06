@@ -21,7 +21,6 @@ class _DashBoardState extends ConsumerState<DashBoard> {
     const HomeView(),
     const AddRooms(),
     const AccountView(),
-    
   ];
 
   UserEntity? userEntity = AuthState.userEntity;
@@ -38,13 +37,12 @@ class _DashBoardState extends ConsumerState<DashBoard> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.add),
-            label: 'Add Room',
+            label: 'Add Hotel',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Account',
           ),
-         
         ],
         currentIndex: _selectedIndex,
         onTap: (index) {

@@ -13,7 +13,7 @@ class App extends ConsumerWidget {
     final isDarkTheme = ref.watch(isDarkThemeProvider);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Room Finder',
+      title: 'SastoHotel',
       theme: AppTheme.getApplicationTheme(isDarkTheme),
       initialRoute: AppRoute.splashRoute,
       routes: AppRoute.getApplicationRoute(),

@@ -16,8 +16,8 @@ class LogIn extends ConsumerStatefulWidget {
 }
 
 class _LogInState extends ConsumerState<LogIn> {
-  final _emailController = TextEditingController(text: 'sudip@gmail.com');
-  final _passwordController = TextEditingController(text: 'sudip123');
+  final _emailController = TextEditingController(text: 'upesh@gmail.com');
+  final _passwordController = TextEditingController(text: 'upesh');
   bool isObscure = true;
 
   @override
@@ -42,7 +42,7 @@ class _LogInState extends ConsumerState<LogIn> {
                 width: width * 1,
                 height: 200,
                 decoration: const BoxDecoration(
-                  color: Color.fromRGBO(51, 0, 255, 0.45),
+                  color: Color.fromRGBO(182, 39, 4, 0.938),
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(30),
                       bottomRight: Radius.circular(30)),
@@ -56,7 +56,7 @@ class _LogInState extends ConsumerState<LogIn> {
                         text: 'Solution To The Chaos Of',
                       ),
                       TextStyle1(
-                        text: 'Finding Rooms',
+                        text: 'Finding Hotels',
                       ),
                     ],
                   ),

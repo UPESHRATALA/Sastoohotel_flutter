@@ -16,10 +16,10 @@ class Register extends ConsumerStatefulWidget {
 
 class _RegisterState extends ConsumerState<Register> {
   final _key = GlobalKey<FormState>();
-  final _fullNameController = TextEditingController(text: "Sudip Singh Khati");
+  final _fullNameController = TextEditingController(text: "Upesh Ratala");
 
-  final _emailController = TextEditingController(text: "sudip@gmail.com");
-  final _passwordController = TextEditingController(text: "sudip123");
+  final _emailController = TextEditingController(text: "upesh@gmail.com");
+  final _passwordController = TextEditingController(text: "upesh123");
   bool isObscure = true;
 
   @override
@@ -145,11 +145,11 @@ class _RegisterState extends ConsumerState<Register> {
                           message: authState.error.toString(),
                         );
                       } else {
-                      showSnackBar(
-                        context: context,
-                        message: 'Registered successfully',
-                        color: Colors.green,
-                      );
+                        showSnackBar(
+                          context: context,
+                          message: 'Registered successfully',
+                          color: Colors.green,
+                        );
                       }
                     },
                     child: const Text('Register'),
