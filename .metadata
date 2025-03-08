@@ -10,6 +10,7 @@ version:
 project_type: app
 
 # Tracks metadata for the flutter migrate command
+# sasto-hotel
 migration:
   platforms:
     - platform: root
