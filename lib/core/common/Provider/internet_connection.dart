@@ -17,7 +17,7 @@ class ConnectivityStatusNotifier extends StateNotifier<ConnectivityStatus> {
       }
     });
   }
-
+//sasto-hotel
   ConnectivityStatus _getConnectivityStatus(ConnectivityResult result) {
     if (result == ConnectivityResult.wifi ||
         result == ConnectivityResult.mobile) {

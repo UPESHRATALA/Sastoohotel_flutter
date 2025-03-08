@@ -13,7 +13,7 @@ class RoomSharedPrefs {
   Future<Either<Failure, bool>> setRoomEntity(RoomEntity room) async {
     try {
       _sharedPreferences = await SharedPreferences.getInstance();
-
+//sasto-hotel
       // Convert UserEntity to JSON string
       final roomJson = json.encode(room.toJson());
 

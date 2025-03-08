@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   AppTheme._();
-
+//sasto-hotel
   static getApplicationTheme(bool isDark) {
     return ThemeData(
       colorScheme:

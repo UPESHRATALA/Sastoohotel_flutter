@@ -12,6 +12,7 @@ class DioErrorInterceptor extends Interceptor{
           error: err.response!.data['error'] ?? err.response!.statusMessage!,
           type: err.type,
         );
+        //sasto-hotel
       } else {
         err = DioException(
           requestOptions: err.requestOptions,

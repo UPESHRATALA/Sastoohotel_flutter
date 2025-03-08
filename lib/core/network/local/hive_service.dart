@@ -6,7 +6,7 @@ import '../../../config/constants/hive_table_constant.dart';
 import '../../../fetures/auth/data/model/auth_hive_model.dart';
 
 final hiveServiceProvider = Provider<HiveService>((ref) => HiveService());
-
+//sasto-hotel
 class HiveService {
   Future<void> init() async {
     var directory = await getApplicationDocumentsDirectory();

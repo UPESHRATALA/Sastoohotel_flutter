@@ -14,7 +14,7 @@ class UserSharedPrefs {
   late SharedPreferences _sharedPreferences;
 
   // set user token
-
+//sasto-hotel
   Future<Either<Failure, bool>> setUserToken({required String token}) async {
     try {
       _sharedPreferences = await SharedPreferences.getInstance();

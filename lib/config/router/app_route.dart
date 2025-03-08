@@ -7,6 +7,7 @@ import 'package:room_finder_app/fetures/room/presentation/view/update_rooms.dart
 import 'package:room_finder_app/fetures/room/presentation/view/upload_image_view.dart';
 import 'package:room_finder_app/fetures/splash/presentation/view/splash_view.dart';
 
+//sasto-hotel
 class AppRoute {
   AppRoute._();
 

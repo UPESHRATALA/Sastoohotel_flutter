@@ -7,3 +7,4 @@ class HiveTableConstant {
   static const int roomTableId = 1;
   static const String roomBox = 'roomBox';
 }
+//sasto-hotel

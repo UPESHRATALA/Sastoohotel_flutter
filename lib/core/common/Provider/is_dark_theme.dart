@@ -15,6 +15,7 @@ class IsDarkTheme extends StateNotifier<bool> {
   IsDarkTheme(this.appThemePrefs) : super(false) {
     onInit();
   }
+  //sasto-hotel
 
   onInit() async {
     final isDarkTheme = await appThemePrefs.getTheme();
